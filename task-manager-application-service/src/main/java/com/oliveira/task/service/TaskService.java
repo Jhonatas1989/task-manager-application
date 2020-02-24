@@ -3,7 +3,6 @@ package com.oliveira.task.service;
 import java.util.List;
 
 import com.oliveira.task.dto.TaskDTO;
-import com.oliveira.task.dto.UserDTO;
 import com.oliveira.task.filter.TaskFilter;
 
 /**
@@ -11,11 +10,6 @@ import com.oliveira.task.filter.TaskFilter;
  *
  */
 public interface TaskService {
-
-	/**
-	 * @return list with all users
-	 */
-	public List<UserDTO> findAllUsers();
 
 	/**
 	 * @param taskDTO

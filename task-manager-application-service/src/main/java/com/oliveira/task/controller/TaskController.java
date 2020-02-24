@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.oliveira.task.dto.TaskDTO;
-import com.oliveira.task.dto.UserDTO;
 import com.oliveira.task.filter.TaskFilter;
 import com.oliveira.task.service.TaskService;
 import com.oliveira.task.util.Utils;
@@ -30,7 +29,6 @@ import com.oliveira.task.util.Utils;
  */
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-
 public class TaskController {
 
 	@Autowired
@@ -44,15 +42,6 @@ public class TaskController {
 	@DeleteMapping("clear")
 	public void clear() throws IOException {
 		service.clear();
-	}
-
-	/**
-	 *
-	 * @return list of users
-	 */
-	@GetMapping("users")
-	public ResponseEntity<List<UserDTO>> getUsers() {
-		return new ResponseEntity<List<UserDTO>>(service.findAllUsers(), HttpStatus.OK);
 	}
 
 	/**

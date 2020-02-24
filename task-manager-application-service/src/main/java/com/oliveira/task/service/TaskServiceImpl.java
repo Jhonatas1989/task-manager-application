@@ -7,12 +7,10 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.oliveira.task.dto.TaskDTO;
-import com.oliveira.task.dto.UserDTO;
 import com.oliveira.task.filter.TaskFilter;
 import com.oliveira.task.model.Task;
 import com.oliveira.task.model.User;
@@ -37,17 +35,6 @@ public class TaskServiceImpl implements TaskService {
 
 	@Autowired
 	private UserRepository userRepository;
-
-	@Override
-	public List<UserDTO> findAllUsers() {
-		List<UserDTO> users = new ArrayList<UserDTO>();
-
-		for (User user : userRepository.findAll(Sort.by("name").ascending())) {
-			users.add(new UserDTO(user.getId(), user.getName()));
-		}
-
-		return users;
-	}
 
 	@Override
 	public String createTask(TaskDTO taskDTO) {
